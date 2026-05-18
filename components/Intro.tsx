@@ -5,9 +5,11 @@ import { Waves, ArrowRight, Sparkles } from 'lucide-react';
 interface IntroProps {
   onComplete: () => void;
   spiritName: string;
+  spiritImage: string;
+  spiritDescription: string;
 }
 
-const Intro: React.FC<IntroProps> = ({ onComplete, spiritName }) => {
+const Intro: React.FC<IntroProps> = ({ onComplete, spiritName, spiritImage, spiritDescription }) => {
   const [step, setStep] = useState(1);
 
   return (
@@ -43,14 +45,14 @@ const Intro: React.FC<IntroProps> = ({ onComplete, spiritName }) => {
         <div className="max-w-md animate-in zoom-in duration-700">
           <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-amber-500 shadow-[0_0_40px_rgba(245,158,11,0.5)]">
             <img
-              src="https://picsum.photos/seed/sea-turtle-hawaii-honu/400/400"
-              alt="Honu the turtle"
-              className="w-full h-full object-cover"
+              src={spiritImage}
+              alt={spiritName}
+              className="w-full h-full object-contain"
             />
           </div>
-          <h2 className="text-3xl font-serif text-amber-400 mb-4">Honu Speaks</h2>
+          <h2 className="text-3xl font-serif text-amber-400 mb-4">{spiritName} Speaks</h2>
           <p className="text-xl italic text-emerald-200 mb-6 font-serif">
-            "Aloha! I am Honu, guardian of the Hawaiian islands. A great storm has scattered my six sacred symbols across the islands!"
+            "Aloha! I am {spiritName}. {spiritDescription} A great storm has scattered my seven sacred symbols across the islands!"
           </p>
           <Button variant="secondary" onClick={() => setStep(3)}>
             How can I help?

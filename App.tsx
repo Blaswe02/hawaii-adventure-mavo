@@ -118,7 +118,14 @@ const App: React.FC = () => {
 
       {/* ── Views ── */}
       {view === 'spirit_select' && <SpiritAnimalSelect onSelect={handleSpiritSelect} />}
-      {view === 'intro' && <Intro onComplete={() => setView('map')} spiritName={spiritInfo?.name ?? 'Honu'} />}
+      {view === 'intro' && (
+        <Intro
+          onComplete={() => setView('map')}
+          spiritName={spiritInfo?.name ?? 'Honu'}
+          spiritImage={spiritInfo?.image ?? 'https://picsum.photos/seed/sea-turtle-hawaii-honu/400/400'}
+          spiritDescription={spiritInfo?.description ?? 'Guardian of the Hawaiian islands.'}
+        />
+      )}
 
       {view === 'map' && (
         <MapHub locations={LOCATIONS} completedLocations={player.completedLocations}
