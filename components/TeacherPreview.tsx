@@ -13,6 +13,7 @@ const SLOTS: { meaning: string; correct: SymbolType; hint: string }[] = [
   { meaning: 'Royalty & Resistance', correct: 'Landmark', hint: '"I am the only royal palace in the USA. Queen Liliuokalani was placed under house arrest here in 1893. In 1993, an apology was made."' },
   { meaning: 'Ocean & Life',         correct: 'Droplets', hint: '"Honu turtles and endangered Hawaiian Monk Seals swim in my volcanic crater waters. The seals are guardians of souls."' },
   { meaning: 'Wild & Wonder',        correct: 'Leaf',     hint: '"Jurassic Park was filmed along my 1,200-meter cliffs. The rare Silversword plant — the Crown Jewel — blooms once then dies."' },
+  { meaning: 'Sky & Sacred',         correct: 'Star',     hint: '"My name means white mountain. Hawaiians prayed at my summit for centuries. Today, scientists and protesters both look up at my peak."' },
 ];
 
 const REFLECTION_GOALS = [

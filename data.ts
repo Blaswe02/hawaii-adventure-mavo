@@ -462,6 +462,98 @@ export const LOCATIONS: LocationData[] = [
     ]
   },
   {
+    id: 'maunakea',
+    name: 'Mauna Kea',
+    shortDescription: 'Sacred summit. Telescopes vs. tradition. Nobody knows.',
+    introImage: 'https://picsum.photos/seed/mauna-kea-summit/900/600',
+    readingText: [
+      "Mauna Kea is the highest mountain in Hawaii, rising 4,205 meters above sea level.",
+      "It is a dormant volcano on the Big Island, but from its base on the ocean floor it is actually the tallest mountain on Earth.",
+      "The name 'Mauna Kea' means 'white mountain' in Hawaiian, referring to the snow that covers its peak in winter.",
+      "Native Hawaiians consider Mauna Kea one of the most sacred places in the world.",
+      "According to Hawaiian tradition, the summit is the home of the gods and a place for prayer and ceremonies.",
+      "For centuries, Hawaiians made the difficult climb to leave offerings and connect with their ancestors.",
+      "Today, the summit of Mauna Kea is also home to some of the world's most powerful telescopes.",
+      "The high altitude, dry air, and distance from city lights make it one of the best places on Earth for astronomy.",
+      "Scientists have used these telescopes to discover new planets, stars, and distant galaxies.",
+      "However, many Native Hawaiians strongly oppose the construction of telescopes on their sacred land.",
+      "They argue that building on Mauna Kea is a form of disrespect to their culture and religion.",
+      "In 2019, thousands of protesters blocked the road to stop a major new telescope project.",
+      "The conflict between science and Hawaiian culture continues to this day.",
+      "Some say the mountain speaks to those who listen — but nobody knows what it truly holds at its summit."
+    ],
+    mysterySentence: "Some say the mountain speaks to those who listen — but nobody knows what it truly holds at its summit.",
+    symbol: 'Star',
+    symbolMeaning: 'Sky & Sacred',
+    questions: [
+      {
+        id: 1,
+        text: "Why is Mauna Kea sometimes called the tallest mountain on Earth?",
+        options: ["Because it has the most snow", "Because it is measured from its base on the ocean floor", "Because it has the most telescopes"],
+        correctIndex: 1,
+        hint: "Sentence 2 explains this carefully — think about what 'base' means."
+      },
+      {
+        id: 2,
+        text: "Why do scientists choose Mauna Kea for their observatories?",
+        options: ["Because it is close to Honolulu", "Because the government pays for it", "Because the high altitude, dry air and darkness make it ideal for astronomy"],
+        correctIndex: 2,
+        hint: "Sentence 8 gives three specific reasons."
+      },
+      {
+        id: 3,
+        text: "Why do many Native Hawaiians oppose the telescopes on Mauna Kea?",
+        options: ["Because they prefer darkness at night", "Because the telescopes are too loud", "Because building on the sacred land disrespects their culture and religion"],
+        correctIndex: 2,
+        hint: "Sentence 11 explains their argument."
+      },
+      {
+        id: 4,
+        text: "What happened in 2019 on Mauna Kea?",
+        options: ["A new telescope was successfully opened", "Thousands of protesters blocked the road to stop a telescope project", "The existing telescopes were removed"],
+        correctIndex: 1,
+        hint: "Sentence 12 describes this event."
+      },
+      {
+        id: 5,
+        text: "What does the ongoing conflict between science and Hawaiian culture show?",
+        options: ["That science always wins in the end", "That ancient traditions have no value today", "That progress can sometimes come at a cost to local communities"],
+        correctIndex: 2,
+        hint: "Think about what sentence 13 implies — there is no simple answer."
+      }
+    ],
+    sentenceBuilderTasks: [
+      {
+        id: 1,
+        blocks: ["Mauna Kea", "is considered", "one of the most", "sacred places in the world"]
+      },
+      {
+        id: 2,
+        blocks: ["The conflict", "between science", "and Hawaiian culture", "continues today"]
+      }
+    ],
+    missingWordsTasks: [
+      {
+        id: 1,
+        sentenceParts: ["Mauna Kea means '", "mountain' in Hawaiian."],
+        options: ["white", "sacred", "tall"],
+        correctOption: "white"
+      },
+      {
+        id: 2,
+        sentenceParts: ["Scientists use the telescopes to discover planets, stars, and distant", "."],
+        options: ["galaxies", "animals", "volcanoes"],
+        correctOption: "galaxies"
+      },
+      {
+        id: 3,
+        sentenceParts: ["In 2019, thousands of protesters", "the road to stop a new telescope."],
+        options: ["blocked", "opened", "cleaned"],
+        correctOption: "blocked"
+      }
+    ]
+  },
+  {
     id: 'napali',
     name: 'Na Pali Coast',
     shortDescription: 'Prehistoric cliffs. The Crown Jewel. Ancient spirits.',

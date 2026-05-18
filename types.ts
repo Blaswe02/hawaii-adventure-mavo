@@ -1,7 +1,7 @@
 
 export type ViewState = 'intro' | 'map' | 'location' | 'mystery_gate' | 'oracle' | 'reflection' | 'ending';
 
-export type SymbolType = 'Anchor' | 'Flame' | 'Waves' | 'Landmark' | 'Droplets' | 'Leaf';
+export type SymbolType = 'Anchor' | 'Flame' | 'Waves' | 'Landmark' | 'Droplets' | 'Leaf' | 'Star';
 
 export interface LocationData {
   id: string;

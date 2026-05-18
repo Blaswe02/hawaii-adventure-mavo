@@ -1,6 +1,6 @@
 import React from 'react';
 import { SymbolType } from '../types';
-import { Anchor, Flame, Waves, Landmark, Droplets, Leaf } from 'lucide-react';
+import { Anchor, Flame, Waves, Landmark, Droplets, Leaf, Star } from 'lucide-react';
 
 interface InventoryProps {
   symbols: SymbolType[];
@@ -15,10 +15,11 @@ const getIcon = (type: SymbolType, size = 'w-4 h-4') => {
     case 'Landmark': return <Landmark className={`${size} text-amber-300`} />;
     case 'Droplets': return <Droplets className={`${size} text-teal-300`} />;
     case 'Leaf':     return <Leaf     className={`${size} text-green-400`} />;
+    case 'Star':     return <Star     className={`${size} text-yellow-300`} />;
   }
 };
 
-const ALL: SymbolType[] = ['Anchor', 'Flame', 'Waves', 'Landmark', 'Droplets', 'Leaf'];
+const ALL: SymbolType[] = ['Anchor', 'Flame', 'Waves', 'Landmark', 'Droplets', 'Leaf', 'Star'];
 
 const Inventory: React.FC<InventoryProps> = ({ symbols, onSymbolsClick }) => (
   <div className="fixed top-0 left-0 right-0 bg-emerald-950/90 border-b border-emerald-800 p-2 z-50 flex justify-between items-center backdrop-blur-sm shadow-lg">
