@@ -5,12 +5,18 @@ import SentenceBuilder from './SentenceBuilder';
 import MissingWords from './MissingWords';
 import { getIcon } from './Inventory';
 import { BookOpen, Check, X, ArrowLeft, ArrowRight, AlertTriangle } from 'lucide-react';
+import { CompanionTrigger } from './SpiritCompanion';
 
-interface Props { location: LocationData; onBack: () => void; onComplete: () => void; }
+interface Props {
+  location: LocationData;
+  onBack: () => void;
+  onComplete: () => void;
+  onCompanionTrigger?: (t: CompanionTrigger) => void;
+}
 type Step = 'intro' | 'reading' | 'quiz' | 'quiz-results' | 'reading-retry' | 'sentence-builder' | 'missing-words' | 'success';
 const PASS_SCORE = 4;
 
-const LocationLevel: React.FC<Props> = ({ location, onBack, onComplete }) => {
+const LocationLevel: React.FC<Props> = ({ location, onBack, onComplete, onCompanionTrigger }) => {
   const [step, setStep] = useState<Step>('intro');
   const [qIdx, setQIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -20,6 +26,7 @@ const LocationLevel: React.FC<Props> = ({ location, onBack, onComplete }) => {
   const score = answers.filter((a, i) => a === location.questions[i].correctIndex).length;
 
   const resetQuiz = () => { setQIdx(0); setSelected(null); setAnswers(new Array(total).fill(null)); };
+  const trigger = (t: CompanionTrigger) => onCompanionTrigger?.(t);
 
   if (step === 'intro') return (
     <div className="min-h-screen bg-slate-900 pt-16 px-4 flex flex-col items-center">
@@ -53,7 +60,7 @@ const LocationLevel: React.FC<Props> = ({ location, onBack, onComplete }) => {
         <div className="space-y-4 text-lg text-slate-200 leading-relaxed mb-8">
           {location.readingText.map((p, i) => <p key={i}>{p}</p>)}
         </div>
-        <Button onClick={() => { resetQuiz(); onStart(); }} className="w-full">
+        <Button onClick={() => { resetQuiz(); onStart(); trigger({ type: 'entered-location', locationId: location.id }); }} className="w-full">
           {retryScore !== undefined ? 'I read the text' : 'Start Quiz'} <ArrowRight className="w-5 h-5" />
         </Button>
       </div>
@@ -68,7 +75,11 @@ const LocationLevel: React.FC<Props> = ({ location, onBack, onComplete }) => {
     const isLast = qIdx === total - 1;
     const handleNext = () => {
       const upd = [...answers]; upd[qIdx] = selected; setAnswers(upd);
-      if (isLast) { setStep('quiz-results'); }
+      if (isLast) {
+        setStep('quiz-results');
+        const finalScore = upd.filter((a, i) => a === location.questions[i].correctIndex).length;
+        trigger(finalScore >= PASS_SCORE ? { type: 'quiz-passed' } : { type: 'wrong-answer' });
+      }
       else { setQIdx(p => p + 1); setSelected(null); }
     };
     return (
@@ -138,7 +149,7 @@ const LocationLevel: React.FC<Props> = ({ location, onBack, onComplete }) => {
   }
 
   if (step === 'sentence-builder') return <SentenceBuilder tasks={location.sentenceBuilderTasks} onComplete={() => setStep('missing-words')} />;
-  if (step === 'missing-words') return <MissingWords tasks={location.missingWordsTasks} onComplete={() => setStep('success')} />;
+  if (step === 'missing-words') return <MissingWords tasks={location.missingWordsTasks} onComplete={() => { setStep('success'); trigger({ type: 'location-complete' }); }} />;
 
   if (step === 'success') return (
     <div className="min-h-screen bg-slate-900 pt-16 px-4 flex justify-center items-center text-center">

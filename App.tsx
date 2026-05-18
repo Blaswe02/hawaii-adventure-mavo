@@ -11,7 +11,7 @@ import MysteryGate from './components/MysteryGate';
 import Inventory from './components/Inventory';
 import Reflection from './components/Reflection';
 import TeacherPreview from './components/TeacherPreview';
-import SpiritCompanion from './components/SpiritCompanion';
+import SpiritCompanion, { CompanionTrigger } from './components/SpiritCompanion';
 import Button from './components/Button';
 import { Waves, RotateCcw, X } from 'lucide-react';
 
@@ -34,6 +34,7 @@ const App: React.FC = () => {
   const [showTeacher, setShowTeacher] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const [companionTrigger, setCompanionTrigger] = useState<CompanionTrigger | null>(null);
   const activeLocation = LOCATIONS.find(l => l.id === activeId);
   const spiritInfo = SPIRIT_ANIMALS.find(a => a.id === player.spiritAnimal);
 
@@ -70,7 +71,8 @@ const App: React.FC = () => {
 
       {/* Spirit Animal Companion with mood dialog + tips */}
       {spiritInfo && !['spirit_select','intro','ending'].includes(view) && (
-        <SpiritCompanion spiritInfo={spiritInfo} view={view} />
+        <SpiritCompanion spiritInfo={spiritInfo} view={view}
+          companionTrigger={companionTrigger} onTriggerHandled={() => setCompanionTrigger(null)} />
       )}
 
       {/* Teacher passcode modal */}
@@ -114,7 +116,8 @@ const App: React.FC = () => {
           onComplete={() => {
             setPlayer(p => ({ ...p, completedLocations: [...p.completedLocations, activeLocation.id], inventory: [...p.inventory, activeLocation.symbol] }));
             setActiveId(null); setView('map');
-          }} />
+          }}
+          onCompanionTrigger={setCompanionTrigger} />
       )}
 
       {view === 'mystery_gate' && <MysteryGate locations={LOCATIONS} onComplete={() => setView('oracle')} />}
