@@ -17,7 +17,7 @@ const MapHub: React.FC<MapHubProps> = ({ locations, completedLocations, onSelect
     <div className="min-h-screen bg-emerald-950 p-4 pt-16 flex flex-col items-center">
       <h2 className="text-3xl font-serif text-amber-400 mb-2 text-center mt-4">Map of Hawaiʻi</h2>
       <p className="text-emerald-200/80 mb-6 text-center max-w-lg text-sm">
-        Explore the islands. Help Honu find the six sacred symbols of Aloha.
+        Explore the 7 landmarks. Help Honu find the seven sacred symbols of Aloha.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl w-full mb-24">
