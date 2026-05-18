@@ -1,5 +1,16 @@
 
-export type ViewState = 'intro' | 'map' | 'location' | 'mystery_gate' | 'oracle' | 'reflection' | 'ending';
+export type ViewState = 'spirit_select' | 'intro' | 'map' | 'location' | 'mystery_gate' | 'oracle' | 'reflection' | 'ending';
+
+export type SpiritAnimal = 'deer' | 'gecko' | 'owl' | 'turtle' | 'fox';
+
+export interface SpiritAnimalInfo {
+  id: SpiritAnimal;
+  name: string;
+  trait: string;
+  description: string;
+  glowColor: string;
+  image: string;
+}
 
 export type SymbolType = 'Anchor' | 'Flame' | 'Waves' | 'Landmark' | 'Droplets' | 'Leaf' | 'Star';
 
@@ -41,4 +52,5 @@ export interface PlayerState {
   inventory: SymbolType[];
   completedLocations: string[];
   wish: string;
+  spiritAnimal: SpiritAnimal | null;
 }
