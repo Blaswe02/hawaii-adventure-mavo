@@ -11,6 +11,7 @@ import MysteryGate from './components/MysteryGate';
 import Inventory from './components/Inventory';
 import Reflection from './components/Reflection';
 import TeacherPreview from './components/TeacherPreview';
+import SpiritCompanion from './components/SpiritCompanion';
 import Button from './components/Button';
 import { Waves, RotateCcw, X } from 'lucide-react';
 
@@ -67,35 +68,9 @@ const App: React.FC = () => {
         <Inventory symbols={player.inventory} onSymbolsClick={handleSymbolsClick} spiritName={spiritInfo?.name} />
       )}
 
-      {/* ── Floating Spirit Animal Companion ── */}
-      {showCompanion && (
-        <div className="fixed bottom-24 right-3 z-40 flex flex-col items-center pointer-events-none select-none">
-          <div
-            className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center"
-            style={{ filter: `drop-shadow(0 0 12px ${spiritInfo.glowColor})` }}
-          >
-            <img
-              src={spiritInfo.image}
-              alt={spiritInfo.name}
-              className="w-full h-full object-contain"
-              onError={e => {
-                const fallbacks: Record<string, string> = { deer: '🦌', gecko: '🦎', owl: '🦉', turtle: '🐢', fox: '🦊' };
-                const el = e.target as HTMLImageElement;
-                el.style.display = 'none';
-                const span = document.createElement('span');
-                span.style.fontSize = '48px';
-                span.textContent = fallbacks[spiritInfo.id] || '✨';
-                el.parentElement?.appendChild(span);
-              }}
-            />
-          </div>
-          <span
-            className="text-xs font-serif mt-0.5 font-semibold"
-            style={{ color: spiritInfo.glowColor.replace('0.6)', '1)') }}
-          >
-            {spiritInfo.name}
-          </span>
-        </div>
+      {/* Spirit Animal Companion with mood dialog + tips */}
+      {spiritInfo && !['spirit_select','intro','ending'].includes(view) && (
+        <SpiritCompanion spiritInfo={spiritInfo} view={view} />
       )}
 
       {/* Teacher passcode modal */}
