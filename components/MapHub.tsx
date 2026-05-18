@@ -62,7 +62,7 @@ const MapHub: React.FC<MapHubProps> = ({ locations, completedLocations, onSelect
           disabled={!allCompleted}
           className="w-full max-w-md py-4 text-lg"
         >
-          {allCompleted ? 'Restore the Aloha Spirit' : `Collect all Symbols (${completedLocations.length}/6)`}
+          {allCompleted ? 'Restore the Aloha Spirit' : `Collect all Symbols (${completedLocations.length}/${locations.length})`}
           {allCompleted ? <Waves className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
         </Button>
       </div>

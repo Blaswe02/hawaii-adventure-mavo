@@ -5,7 +5,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'pearlharbor',
     name: 'Pearl Harbor',
     shortDescription: 'Why did Japan attack? What changed forever?',
-    introImage: 'https://picsum.photos/seed/pearl-harbor-hawaii/900/600',
+    introImage: '/pearlharbor.jpg',
     readingText: [
       "Pearl Harbor is a naval base on the island of Oahu, Hawaii.",
       "On December 7, 1941, Japan launched a surprise attack on the American naval base.",
@@ -97,7 +97,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'volcanoes',
     name: 'Volcanoes National Park',
     shortDescription: 'Creation and destruction. Pele and power.',
-    introImage: 'https://picsum.photos/seed/hawaii-volcano-lava/900/600',
+    introImage: '/volcanoesnationalpark.jpg',
     readingText: [
       "Hawaii Volcanoes National Park is located on the Big Island of Hawaii.",
       "It is home to two of the world's most active volcanoes: Kilauea and Mauna Loa.",
@@ -189,7 +189,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'waikiki',
     name: 'Waikiki Beach',
     shortDescription: 'Ancient sport. Olympic champion. Shark Gods.',
-    introImage: 'https://picsum.photos/seed/waikiki-beach-surf/900/600',
+    introImage: '/waikikibeach.jpg',
     readingText: [
       "Waikiki Beach is one of the most famous beaches in the world, located in Honolulu.",
       "The beach stretches for about 3.2 kilometers along the southern coast of Oahu.",
@@ -281,7 +281,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'iolani',
     name: 'Iolani Palace',
     shortDescription: 'The only royal palace in the USA. Overthrow. Apology.',
-    introImage: 'https://picsum.photos/seed/iolani-palace-hawaii/900/600',
+    introImage: '/iolanipalace.jpg',
     readingText: [
       "Iolani Palace is located in downtown Honolulu, the capital of Hawaii.",
       "It is the only royal palace in the United States of America.",
@@ -373,7 +373,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'hanauma',
     name: 'Haunauma Bay',
     shortDescription: 'Volcanic crater. Monk seals. Ancient secrets.',
-    introImage: 'https://picsum.photos/seed/hanauma-bay-turtle/900/600',
+    introImage: '/haunaumabay.jpg',
     readingText: [
       "Haunauma Bay is a stunning bay formed inside an ancient volcanic crater on Oahu.",
       "The word 'Haunauma' means 'curved bay' in Hawaiian.",
@@ -465,7 +465,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'maunakea',
     name: 'Mauna Kea',
     shortDescription: 'Sacred summit. Telescopes vs. tradition. Nobody knows.',
-    introImage: 'https://picsum.photos/seed/mauna-kea-summit/900/600',
+    introImage: '/maunakea.jpg',
     readingText: [
       "Mauna Kea is the highest mountain in Hawaii, rising 4,205 meters above sea level.",
       "It is a dormant volcano on the Big Island, but from its base on the ocean floor it is actually the tallest mountain on Earth.",
@@ -557,7 +557,7 @@ export const LOCATIONS: LocationData[] = [
     id: 'napali',
     name: 'Na Pali Coast',
     shortDescription: 'Prehistoric cliffs. The Crown Jewel. Ancient spirits.',
-    introImage: 'https://picsum.photos/seed/napali-coast-cliffs/900/600',
+    introImage: '/napalicoast.jpg',
     readingText: [
       "The Na Pali Coast is one of the most dramatic and untouched coastlines in the world.",
       "Located on the island of Kauai, its name simply means 'the cliffs' in Hawaiian.",
