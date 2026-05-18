@@ -4,9 +4,10 @@ import { Waves, ArrowRight, Sparkles } from 'lucide-react';
 
 interface IntroProps {
   onComplete: () => void;
+  spiritName: string;
 }
 
-const Intro: React.FC<IntroProps> = ({ onComplete }) => {
+const Intro: React.FC<IntroProps> = ({ onComplete, spiritName }) => {
   const [step, setStep] = useState(1);
 
   return (
@@ -15,7 +16,7 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
       {step === 1 && (
         <div className="max-w-md animate-in fade-in slide-in-from-bottom duration-1000 flex flex-col items-center z-10">
           <h1 className="text-4xl md:text-6xl font-serif text-amber-400 mb-6 drop-shadow-lg">
-            Honu's Quest
+            {spiritName}'s Quest
           </h1>
           <div className="w-full mb-8 rounded-xl overflow-hidden border-4 border-amber-500 shadow-2xl group bg-black">
             <img
@@ -59,10 +60,10 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
 
       {step === 3 && (
         <div className="max-w-md animate-in fade-in duration-1000">
-          <h2 className="text-2xl font-serif text-amber-400 mb-4">The Aloha Quest</h2>
+          <h2 className="text-2xl font-serif text-amber-400 mb-4">{spiritName}'s Quest</h2>
           <div className="bg-emerald-900 p-6 rounded-lg border border-amber-600 shadow-xl mb-8 space-y-4">
             <p className="text-lg">
-              "Travel to the six most special places in Hawaii. Find the <strong>Anchor</strong>, the <strong>Flame</strong>, the <strong>Waves</strong>, the <strong>Star</strong>, the <strong>Droplets</strong>, and the <strong>Leaf</strong>."
+              "Travel to the seven most special places in Hawaii. Find the <strong>Anchor</strong>, the <strong>Flame</strong>, the <strong>Waves</strong>, the <strong>Landmark</strong>, the <strong>Droplets</strong>, the <strong>Leaf</strong>, and the <strong>Star</strong>."
             </p>
             <div className="flex items-center gap-3 text-left bg-black/40 p-4 rounded border border-emerald-700">
               <Sparkles className="w-8 h-8 text-amber-400 shrink-0" />

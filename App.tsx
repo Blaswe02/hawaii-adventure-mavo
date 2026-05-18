@@ -64,7 +64,7 @@ const App: React.FC = () => {
 
       {/* Inventory bar */}
       {view !== 'spirit_select' && view !== 'intro' && view !== 'ending' && (
-        <Inventory symbols={player.inventory} onSymbolsClick={handleSymbolsClick} />
+        <Inventory symbols={player.inventory} onSymbolsClick={handleSymbolsClick} spiritName={spiritInfo?.name} />
       )}
 
       {/* ── Floating Spirit Animal Companion ── */}
@@ -118,7 +118,7 @@ const App: React.FC = () => {
 
       {/* ── Views ── */}
       {view === 'spirit_select' && <SpiritAnimalSelect onSelect={handleSpiritSelect} />}
-      {view === 'intro' && <Intro onComplete={() => setView('map')} />}
+      {view === 'intro' && <Intro onComplete={() => setView('map')} spiritName={spiritInfo?.name ?? 'Honu'} />}
 
       {view === 'map' && (
         <MapHub locations={LOCATIONS} completedLocations={player.completedLocations}
